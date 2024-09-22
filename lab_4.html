@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <style>
+            body{
+                background-color: yellowgreen;
+            }
+            .one{
+                width: 49%;
+                float: left;
+            }
+
+            .two{
+                width: 49%;
+                float: right;
+            }
+
+            #one{
+
+                padding: 10px;
+                margin: 10px;
+                border-radius: 10px;
+                border: solid white 3px;
+                text-align: center;
+                background-color: mediumorchid;
+            }
+            #two{
+                padding: 10px;
+                margin: 10px;
+                border-radius: 10px;
+                border: solid white 3px;
+                text-align: center;
+                background-color: mediumorchid;
+            }
+            #three{
+
+                padding: 10px;
+                margin: 20px;
+                border-radius: 10px;
+                border: solid white 3px;
+                text-align: center;
+                background-color: mediumorchid;
+            }
+            #four{
+
+                padding: 10px;
+                margin: 20px;
+                border-radius: 10px;
+                border: solid white 3px;
+                text-align: center;
+                background-color: mediumorchid;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 id="h1">INST377 - Lab 4</h1>
+        <div class="one">
+         <div id="one">
+
+            <form name="nameFirst" onsubmit="return(alertMe())">
+                <label>Name: </label>
+                <input type="text" placeholder="Name..." id="alertName" required>
+                
+                <button>Alert Me!</button>
+            </form>
+
+         </div>
+
+         <div id="two">
+            <form name="textValidator" onsubmit="return(validateText())">
+                
+                <label>Text Testor: </label>
+                <input type="text" name="textV" placeholder="Text..." required>
+                
+                <button>Validate Text</button>
+            </form>
+         </div>
+        </div>
+
+        <div class="two">
+            <div id="three">
+                <button onclick="changeColor()">Change Color</button>
+            </div>
+
+            <div id="four">
+                <button onclick="addText()">Add Text</button>
+            </div>
+        </div>
+
+        <script>
+            function alertMe(){
+                alert('Hi ' + document.nameFirst.alertName.value +'!');
+            }
+            
+            function changeColor() {
+                if (document.body.style.backgroundColor === 'yellowgreen') {
+                    document.body.style.backgroundColor = 'pink';
+                } else {
+                 document.body.style.backgroundColor = 'yellowgreen';
+                }
+            }
+            
+            function validateText(){
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if(validation.test(document.textValidator.textV.value)){
+                    alert('Your text contains special characters, Please remove them!')
+                    return false;
+                }
+                return true;
+            }
+
+            function addText(){
+                document.getElementById('h1').innerHTML = 'INST377 - Lab 4 - Add Text'
+            }
+        </script>
+    </body>
+</html>
